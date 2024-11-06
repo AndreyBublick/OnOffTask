@@ -4,11 +4,12 @@ import {OnOff} from "./conponents/onOff/OnOff";
 
 
 
+
 function App() {
     return (
         <div className="App">
             <Title>Buttons</Title>
-           <OnOff />
+           <OnOff colorBG={'red'}  />
         </div>
     );
 }
