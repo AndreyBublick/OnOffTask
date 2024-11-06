@@ -1,11 +1,14 @@
 import './App.css';
 import styled from 'styled-components';
+import {OnOff} from "./conponents/onOff/OnOff";
+
 
 
 function App() {
     return (
         <div className="App">
-            <Title>Welcome to IT-INCUBATOR</Title>
+            <Title>Buttons</Title>
+           <OnOff />
         </div>
     );
 }
