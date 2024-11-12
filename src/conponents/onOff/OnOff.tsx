@@ -9,15 +9,12 @@ type CirclePropsType = {
 
 };
 
-type PropsType ={
-    colorBG: ColorBGType;
-};
 
 
-export const OnOff: FC<PropsType> = ({colorBG:colorForBG}) => {
 
+export const OnOff: FC = () => {
     const [condition, setCondition] = useState(true);
-    const [colorBG,setColorBG] = useState<ColorBGType>(colorForBG);
+    const [colorBG,setColorBG] = useState<ColorBGType>('red');
 
     const changeColorBG = useCallback((colorBG:ColorBGType)=>{
         setColorBG(colorBG);
