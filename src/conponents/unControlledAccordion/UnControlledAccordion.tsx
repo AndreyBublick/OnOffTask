@@ -9,9 +9,10 @@ export const UnControlledAccordion:FC<PropsType> = ({title}) => {
     const [isOpen, setIsOpen] = React.useState(false);
 
 
-    return  <Wrapper>
-          <h2>{title}</h2>
-        <button onClick={()=>{setIsOpen(prev => !prev)}}>change</button>
+    return <Wrapper>
+        <h2 onClick={() => {
+            setIsOpen(prev => !prev)
+        }}>{title}</h2>
         <List isOpen={isOpen}>
             <li>1</li>
             <li>2</li>
@@ -22,10 +23,13 @@ export const UnControlledAccordion:FC<PropsType> = ({title}) => {
 };
 
 const Wrapper = styled.div`
-margin-top: 50px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
-align-items: center;    
+    align-items: center;
+    h2{
+        cursor: pointer;
+    }
 `;
 
 const List = styled.ul<{isOpen:boolean}>`
