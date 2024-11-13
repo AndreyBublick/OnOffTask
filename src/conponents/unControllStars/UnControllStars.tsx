@@ -3,12 +3,12 @@ import styled from "styled-components";
 
 export const UnControllStars = () => {
 
-    const [howManyShowStars] = React.useState(3);
+    const [howManyShowStars,setHowManyShowStars] = useState(3);
     const [stars] = useState(['☆','☆','☆','☆','☆']);
     return (
         <Wrapper>
             <List>
-                {stars.map((star,index)=> index < howManyShowStars ? <li>{'★'}</li> : <li>{star}</li>)}
+                {stars.map((star,index)=> index < howManyShowStars ? <li onClick={()=>{setHowManyShowStars(index+1)}} key={index}>{'★'}</li> : <li onClick={()=>{setHowManyShowStars(index+1)}} key={index}>{star}</li>)}
             </List>
         </Wrapper>
     );
@@ -24,5 +24,7 @@ const List = styled.ul`
     display: flex;
 li{
     list-style: none;
+    cursor: pointer;
+    font-size: 60px;
 }
 `;
