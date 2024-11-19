@@ -1,19 +1,18 @@
 import React, {FC} from 'react';
 import styled from "styled-components";
+
+
 type PropsType = {
-    title: string;
+    title: string,
+    accordionCollapsed:boolean,
+    setAccordionCollapsed:()=>void,
+
 };
 
-export const UnControlledAccordion:FC<PropsType> = ({title}) => {
-
-    const [isOpen, setIsOpen] = React.useState(false);
-
-
+export const ControlledAccordion:FC<PropsType> = ({title,setAccordionCollapsed,accordionCollapsed}) => {
     return <Wrapper>
-        <h2 onClick={() => {
-            setIsOpen(prev => !prev)
-        }}>{title}</h2>
-        <List isOpen={isOpen}>
+        <h2 onClick={setAccordionCollapsed}>{title}</h2>
+        <List isOpen={accordionCollapsed}>
             <li>1</li>
             <li>2</li>
             <li>3</li>
@@ -21,6 +20,7 @@ export const UnControlledAccordion:FC<PropsType> = ({title}) => {
         </List>
     </Wrapper>
 };
+
 
 const Wrapper = styled.div`
     margin-top: 50px;

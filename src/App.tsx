@@ -1,13 +1,17 @@
 import './App.css';
 import styled from 'styled-components';
-import {OnOff} from "./conponents/onOff/OnOff";
-import {UnControlledAccordion} from "./conponents/unControlledAccordion/UnControlledAccordion";
-import {UnControllStars} from "./conponents/unControllStars/UnControllStars";
+import {OnOff} from "./components/onOff/OnOff";
+import {UnControlledAccordion} from "./components/unControlledAccordion/UnControlledAccordion";
+import {UnControllStars} from "./components/unControllStars/UnControllStars";
+import {ControlledAccordion} from "./components/controlledAccordion/ControlledAccordion";
+import {useState} from "react";
 
 
 
 
 function App() {
+
+    const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true);
 
     return (
         <div className="App">
@@ -19,6 +23,7 @@ function App() {
             <UnControlledAccordion title={'test1'}/>
             <UnControlledAccordion title={'test2'}/>
             <UnControllStars />
+            <ControlledAccordion title={'ControlledAccordion №1'} accordionCollapsed={accordionCollapsed} setAccordionCollapsed={ ()=>{setAccordionCollapsed(prev=>!prev)} }  />
         </div>
     );
 }
