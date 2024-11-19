@@ -1,29 +1,33 @@
 import './App.css';
 import styled from 'styled-components';
-import {OnOff} from "./components/onOff/OnOff";
+import {UnControllOnOff} from "./components/unControllOnOff/UnControllOnOff";
 import {UnControlledAccordion} from "./components/unControlledAccordion/UnControlledAccordion";
 import {UnControllStars} from "./components/unControllStars/UnControllStars";
 import {ControlledAccordion} from "./components/controlledAccordion/ControlledAccordion";
 import {useState} from "react";
-
-
+import {ControllOnOff} from "./components/controllOnOff/ControllOnOff";
 
 
 function App() {
 
     const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true);
-
+const [isActive, setIsActive] = useState<boolean>(false);
     return (
         <div className="App">
             <Title>Buttons</Title>
-           <OnOff   />
-           <OnOff   />
-           <OnOff   />
-           <OnOff   />
+            <UnControllOnOff/>
+            <UnControllOnOff/>
+
+            <ControllOnOff isActive={isActive} setIsActive={setIsActive} />
+
+
             <UnControlledAccordion title={'test1'}/>
             <UnControlledAccordion title={'test2'}/>
-            <UnControllStars />
-            <ControlledAccordion title={'ControlledAccordion №1'} accordionCollapsed={accordionCollapsed} setAccordionCollapsed={ ()=>{setAccordionCollapsed(prev=>!prev)} }  />
+            <UnControllStars/>
+            <ControlledAccordion title={'ControlledAccordion №1'} accordionCollapsed={accordionCollapsed}
+                                 setAccordionCollapsed={() => {
+                                     setAccordionCollapsed(prev => !prev)
+                                 }}/>
         </div>
     );
 }
