@@ -6,7 +6,7 @@ import {action} from "@storybook/addon-actions";
 
 
 export default {
-    title: 'Controll OnOff',
+    title: 'Components/Controll OnOff',
     component: UnControllStars,
 
 

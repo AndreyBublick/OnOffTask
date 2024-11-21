@@ -10,6 +10,9 @@ type PropsType = {
 };
 
 export const ControlledAccordion:FC<PropsType> = ({title,setAccordionCollapsed,accordionCollapsed}) => {
+
+
+
     return <Wrapper>
         <h2 onClick={setAccordionCollapsed}>{title}</h2>
         <List isOpen={accordionCollapsed}>

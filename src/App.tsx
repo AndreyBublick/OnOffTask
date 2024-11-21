@@ -22,8 +22,8 @@ function App() {
     return (
         <div className="App">
             <Title>Buttons</Title>
-            {/*<UnControllOnOff/>
-            <UnControllOnOff/>*/}
+           <UnControllOnOff/>
+            <UnControllOnOff/>
 
             <ControllOnOff isActive={isActive} setIsActive={setIsActive}/>
 
