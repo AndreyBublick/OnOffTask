@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {FC, useCallback, useState} from "react";
 import {OnOffButton} from "./onOffButton/OnOffButton";
 
-export type ColorBGType = 'red'|'green';
+export type ColorBGType = 'red'|'green'|'white';
 
 type PropsType = {
     isActive: boolean,
@@ -22,18 +22,14 @@ type CirclePropsType = {
 
 export const ControllOnOff: FC<PropsType> = ({isActive,setIsActive}) => {
    /* const [condition, setCondition] = useState(true);*/
-    const [colorBG,setColorBG] = useState<ColorBGType>('red');
 
-    const changeColorBG = useCallback((colorBG:ColorBGType)=>{
-        setColorBG(colorBG);
-    },[]);
 
 
 
     return <Wrapper>
-        {<OnOffButton title={'on'} changeColorBG={changeColorBG} colorBG = {'green'} active = {isActive} onClick={() => setIsActive(true)} /> }
-        {<OnOffButton title={'off'} changeColorBG={changeColorBG} colorBG = {'red'} active = {!isActive} onClick={() => setIsActive(false)} /> }
-        <Circle colorBG={colorBG} condition={isActive} />
+        {<OnOffButton title={'on'}  colorBG = {'green'} active = {isActive} onClick={() => setIsActive(true)} /> }
+        {<OnOffButton title={'off'}  colorBG = {'red'} active = {!isActive} onClick={() => setIsActive(false)} /> }
+        <Circle colorBG={isActive ?  'green':'red'} condition={isActive} />
     </Wrapper>
 
 };

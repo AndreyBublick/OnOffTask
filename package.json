@@ -66,12 +66,15 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:storybook/recommended"
     ]
   },
   "browserslist": {
@@ -87,8 +90,21 @@
     ]
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "3.2.2",
+    "@storybook/addon-actions": "^8.4.5",
+    "@storybook/addon-essentials": "8.4.5",
+    "@storybook/addon-interactions": "8.4.5",
+    "@storybook/addon-onboarding": "8.4.5",
+    "@storybook/blocks": "8.4.5",
+    "@storybook/react": "8.4.5",
+    "@storybook/react-vite": "8.4.5",
+    "@storybook/test": "8.4.5",
     "@types/styled-components": "5.1.26",
-    "babel-plugin-styled-components": "2.0.7"
+    "babel-plugin-styled-components": "2.0.7",
+    "eslint-plugin-react": "^7.25.1",
+    "eslint-plugin-storybook": "^0.5.12",
+    "storybook": "8.4.5",
+    "vite": "^5.4.11"
   },
   "jest": {
     "roots": [

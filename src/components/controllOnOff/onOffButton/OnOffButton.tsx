@@ -9,14 +9,16 @@ type PropsType ={
     onClick: ()=>void,
     active?:boolean,
     colorBG:ColorBGType,
-    changeColorBG:(colorBG:ColorBGType)=>void,
+
 };
 type ButtonPropsType ={
     colorBG?:string,
     active?:boolean,
 };
-export const OnOffButton:FC<PropsType> = ({title,onClick,active,colorBG,changeColorBG,}) => {
-    return <Button colorBG={colorBG} active={active} onClick={ ()=>{onClick();changeColorBG(colorBG)}}>{title}</Button>
+export const OnOffButton:FC<PropsType> = ({title,onClick,active,colorBG,}) => {
+
+
+    return <Button colorBG={colorBG} active={active} onClick={ onClick}>{title}</Button>
 };
 
 const Button = styled.div<ButtonPropsType>`
@@ -31,10 +33,11 @@ const Button = styled.div<ButtonPropsType>`
     
     &:hover {
         background-color: ${props =>  props.colorBG};
-color: white;
+        color: white;
     };
     ${props => props.active && css<ButtonPropsType>`
-        background-color: ${props.colorBG};
+        
         color: white;
     `};
+    background-color: ${props=> props.active&&props.colorBG};
 `;
