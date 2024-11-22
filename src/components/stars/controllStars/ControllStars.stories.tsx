@@ -4,7 +4,7 @@ import {action} from "@storybook/addon-actions";
 
 
 export default {
-    title: 'Components/Controll Stars',
+    title: 'Components/StarsRating/Controll Stars',
     component: ControllStars,
 };
 

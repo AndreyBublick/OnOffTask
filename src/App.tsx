@@ -1,12 +1,13 @@
 import './App.css';
 import styled from 'styled-components';
-import {UnControllOnOff} from "./components/unControllOnOff/UnControllOnOff";
-import {UnControlledAccordion} from "./components/unControlledAccordion/UnControlledAccordion";
-import {UnControllStars} from "./components/unControllStars/UnControllStars";
-import {ControlledAccordion} from "./components/controlledAccordion/ControlledAccordion";
+import {UnControllOnOff} from "./components/onOff/unControllOnOff/UnControllOnOff";
+import {UnControlledAccordion} from "./components/accordions/unControlledAccordion/UnControlledAccordion";
+import {UnControllStars} from "./components/stars/unControllStars/UnControllStars";
+import {ControlledAccordion} from "./components/accordions/controlledAccordion/ControlledAccordion";
 import {useCallback, useState} from "react";
-import {ControllOnOff} from "./components/controllOnOff/ControllOnOff";
-import {ControllStars} from "./components/controllStars/ControllStars";
+
+import {ControllStars} from "./components/stars/controllStars/ControllStars";
+import {ControllOnOff} from "./components/onOff/controllOnOff/ControllOnOff";
 
 
 function App() {

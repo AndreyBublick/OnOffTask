@@ -4,7 +4,7 @@ import {useState} from "react";
 
 
 export default {
-    title: 'Components/Controll Accordion',
+    title: 'Components/Accordions/Controll Accordion',
     component: ControlledAccordion,
 };
 const callBack = ()=> action('change accordion open/close')();
