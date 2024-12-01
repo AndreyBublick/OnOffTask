@@ -1,26 +1,39 @@
-import React, {FC} from 'react';
+import React, {Dispatch, FC, useState} from 'react';
 import styled from "styled-components";
+import {ItemType} from "../../../App";
 
 
 type PropsType = {
     title: string,
-    accordionCollapsed:boolean,
-    setAccordionCollapsed:()=>void,
+    items:ItemType[],
+    onClick:()=>void,
+    accordionCollapsed?:boolean;
+    setAccordionCollapsed:Dispatch<React.SetStateAction<boolean>>,
 
 };
 
-export const ControlledAccordion:FC<PropsType> = ({title,setAccordionCollapsed,accordionCollapsed}) => {
 
+
+export const ControlledAccordion:FC<PropsType> = ({title,items,onClick,setAccordionCollapsed,accordionCollapsed}) => {
+
+    /*const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true);*/
+
+    const mapped = items.map((item: ItemType) => {
+        return <li key={item.id} onClick={onClick}>{item.title}</li>;
+    });
+
+
+
+    const setAccordionCollapsedHandler = ()=>{
+        setAccordionCollapsed(prev => !prev);
+    };
 
 
     return <Wrapper>
-        <h2 onClick={setAccordionCollapsed}>{title}</h2>
-        <List isOpen={accordionCollapsed}>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-        </List>
+        <h2 onClick={setAccordionCollapsedHandler}>{title}</h2>
+        {accordionCollapsed && <List >
+            {mapped}
+        </List>}
     </Wrapper>
 };
 
@@ -35,7 +48,8 @@ const Wrapper = styled.div`
     }
 `;
 
-const List = styled.ul<{isOpen:boolean}>`
+const List = styled.ul`
 
-   display: ${props => props.isOpen ? 'block' : 'none' };
+li{cursor: pointer}
+    
 `;

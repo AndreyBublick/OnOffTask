@@ -8,17 +8,28 @@ import {useCallback, useState} from "react";
 
 import {ControllStars} from "./components/stars/controllStars/ControllStars";
 import {ControllOnOff} from "./components/onOff/controllOnOff/ControllOnOff";
+import {v1} from "uuid";
 
+export type ItemType = {
+    id:string,
+    title:string,
+};
 
 function App() {
 
-    const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true);
+
+
     const [isActive, setIsActive] = useState<boolean>(false);
     const [rating,setRating] = useState<number>(3);
+    const [items,setItems] = useState<ItemType[]>([{id:v1(),title:'1'},{id:v1(),title:'2'}]);
+
 
     const setNewRating = useCallback((newRating:number) => {
        setRating(newRating);
     },[]);
+
+
+
 
     return (
         <div className="App">
@@ -33,10 +44,7 @@ function App() {
             <UnControlledAccordion title={'test2'}/>
             <UnControllStars/>
             <ControllStars rating={rating} setRating={setNewRating}/>
-            <ControlledAccordion title={'ControlledAccordion №1'} accordionCollapsed={accordionCollapsed}
-                                 setAccordionCollapsed={() => {
-                                     setAccordionCollapsed(prev => !prev)
-                                 }}/>
+            <ControlledAccordion title={'ControlledAccordion №1'} items={items} onClick={()=>{}} setAccordionCollapsed={setIsActive}/>
         </div>
     );
 }
