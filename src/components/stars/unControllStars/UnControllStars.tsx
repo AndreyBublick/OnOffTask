@@ -14,7 +14,7 @@ export const UnControllStars:FC<PropsType> = ({defaultHowManyShowStars,defaultCh
     return (
         <Wrapper>
             <List>
-                {stars.map((star,index)=> <Star isActiveStar={index < howManyShowStars} onClick={()=>{ defaultChange ? defaultChange(index+1):setHowManyShowStars(index+1 as 1|2|3|4|5)}} />)}
+                {stars.map((star,index)=> <Star key={index} isActiveStar={index < howManyShowStars} onClick={()=>{ defaultChange ? defaultChange(index+1):setHowManyShowStars(index+1 as 1|2|3|4|5)}} />)}
                 {/*<li onClick={()=>{setHowManyShowStars(index+1)}} key={index}>{star}</li>*/}
             </List>
         </Wrapper>
