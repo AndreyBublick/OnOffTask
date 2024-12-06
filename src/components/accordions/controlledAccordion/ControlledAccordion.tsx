@@ -7,7 +7,7 @@ type PropsType = {
     title: string,
     items:ItemType[],
     onClick:()=>void,
-    accordionCollapsed?:boolean;
+    accordionCollapsed:boolean;
     setAccordionCollapsed:Dispatch<React.SetStateAction<boolean>>,
 
 };

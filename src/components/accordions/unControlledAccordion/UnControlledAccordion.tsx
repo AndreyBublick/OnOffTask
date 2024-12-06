@@ -1,17 +1,20 @@
-import React, {FC} from 'react';
+import React, {FC, useReducer} from 'react';
 import styled from "styled-components";
+import {changeIsOpenAC, reducer} from "./reducer";
 type PropsType = {
     title: string;
 };
 
 export const UnControlledAccordion:FC<PropsType> = ({title}) => {
 
-    const [isOpen, setIsOpen] = React.useState(false);
+    /*const [isOpen, setIsOpen] = React.useState(false);*/
+
+    const [state, dispatch] = useReducer(reducer,{isOpen:false});
 
 
     return <Wrapper>
-        <h2 onClick={() => {setIsOpen(prev => !prev)}}>{title}</h2>
-        <List isOpen={isOpen}>
+        <h2 onClick={() => {dispatch(changeIsOpenAC())}}>{title}</h2>
+        <List isOpen={state.isOpen}>
             <li>1</li>
             <li>2</li>
             <li>3</li>

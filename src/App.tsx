@@ -25,8 +25,9 @@ function App() {
 
 
     const [isActive, setIsActive] = useState<boolean>(false);
+    const [isActiveForOnOff, setIsActiveForOnOff] = useState<boolean>(false);
     const [rating, setRating] = useState<number>(3);
-    const [items, setItems] = useState<ItemType[]>([{id: id1, title: 'item1'}, {id: id2, title: 'item2'}]);
+    const [items, setItems] = useState<ItemType[]>([{id: id1, title: 'item asd asd asd asd asd 1'}, {id: id2, title: 'item2'}]);
     const [selectedItemId, setSelectedItemId] = useState(id1);
 
 
@@ -42,15 +43,14 @@ function App() {
             <UnControllOnOff/>
             <UnControllOnOff/>
 
-            <ControllOnOff isActive={isActive} setIsActive={setIsActive}/>
+            <ControllOnOff isActive={isActiveForOnOff} setIsActive={setIsActiveForOnOff}/>
 
 
             <UnControlledAccordion title={'test1'}/>
             <UnControlledAccordion title={'test2'}/>
             <UnControllStars/>
             <ControllStars rating={rating} setRating={setNewRating}/>
-            <ControlledAccordion title={'ControlledAccordion №1'} items={items} onClick={() => {
-            }} setAccordionCollapsed={setIsActive}/>
+            <ControlledAccordion title={'ControlledAccordion №1'} accordionCollapsed={isActive} items={items} onClick={() => {console.log(123)}} setAccordionCollapsed={setIsActive}/>
         </div>
     );
 }

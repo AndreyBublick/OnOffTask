@@ -7,7 +7,7 @@ import {action} from "@storybook/addon-actions";
 
 
 export default {
-    title: "Components/select",
+    title: "Components/Selects/select",
     component: Select,
 };
 export const SelectDefaultId1 = ()=> {
