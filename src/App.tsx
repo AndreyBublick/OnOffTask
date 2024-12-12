@@ -10,6 +10,7 @@ import {ControllStars} from "./components/stars/controllStars/ControllStars";
 import {ControllOnOff} from "./components/onOff/controllOnOff/ControllOnOff";
 import {v1} from "uuid";
 import {Select} from "./components/select/Select";
+import {MemoSelects} from "./components/memoSelects/MemoSelects";
 
 export type ItemType = {
     id: string,
@@ -38,6 +39,7 @@ function App() {
 
     return (
         <div className="App">
+            <MemoSelects />
             <Select items={items} defaultId={selectedItemId} onChange={setSelectedItemId} />
             <Title>Buttons</Title>
             <UnControllOnOff/>
